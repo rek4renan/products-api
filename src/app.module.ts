@@ -11,6 +11,7 @@ import { ImagenesModule } from './modules/imagenes/imagenes.module';
 
 // IMPORTAR TYPEORM PARA CONEXION A LA BD
 import { TypeOrmModule } from '@nestjs/typeorm'
+import { RegisterModule } from './modules/register/register.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -31,7 +32,8 @@ import { TypeOrmModule } from '@nestjs/typeorm'
     ClasificadorModule, 
     CategoriaModule, 
     UnidadmedidaModule, 
-    ImagenesModule],
+    ImagenesModule,
+    RegisterModule],
   controllers: [AppController],
   providers: [AppService],
 })

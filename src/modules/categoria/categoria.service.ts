@@ -2,12 +2,16 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CategoriaEntity } from './entities/categoria.entity';
+
+
 @Injectable()
 export class CategoriaService {
 
     constructor(
         @InjectRepository(CategoriaEntity) private categoriaRepo: Repository<CategoriaEntity>,
     ) { }
+
+    
     findAll() {
         return this.categoriaRepo.find();
     }
@@ -18,9 +22,8 @@ export class CategoriaService {
 
     create(body: any) {
         const newCategoria = new CategoriaEntity();
-        newCategoria.descripcion = body.name;
+        newCategoria.descripcion = body.descripcion;
         newCategoria.id_categoria_padre = body.id_categoria_padre;
-        // const newTask = this.tasksRepo.create(body);
         return this.categoriaRepo.save(newCategoria);
     }
 
